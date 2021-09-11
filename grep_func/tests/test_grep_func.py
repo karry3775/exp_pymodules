@@ -1,7 +1,12 @@
 import pytest
 from grep_func import grep_func
-from io import BytesIO
 import sys
+
+if sys.version_info[0] == 2:
+    from io import BytesIO as StringIO
+else:
+    from io import StringIO
+
 import re
 from colorama import Fore
 
@@ -11,7 +16,7 @@ def test_grep():
 
     pattern = "basic"
 
-    sys.stdout = BytesIO()
+    sys.stdout = StringIO()
 
     grep_func.grep_func(logging, pattern)
 
