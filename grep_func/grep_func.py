@@ -9,6 +9,9 @@ def grep_func(module, pattern):
         for member in getmembers(module, isfunction)
         if re.search(pattern, member[0])
     ]
+
+    # Stray comment --> to active travis build
+
     # Print grep style
     for match in matching:
         print(re.sub(r"({})".format(pattern), Fore.RED + r"\1" + Fore.RESET, match))
