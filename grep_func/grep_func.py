@@ -1,12 +1,14 @@
 import re
-from inspect import getmembers, isfunction
+from inspect import getmembers, isfunction, ismethod
 from colorama import Fore
 
 
 def grep_func(module, pattern):
     matching = [
         member[0]
-        for member in getmembers(module, isfunction)
+        for member in getmembers(
+            module, predicate=lambda x: isfunction(x) or ismethod(x)
+        )
         if re.search(pattern, member[0])
     ]
 
