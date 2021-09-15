@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="grep_func",
-    version="1.0.1",
+    version="1.0.2",
     packages=setuptools.find_packages(),
     description="A python package to grep 'functions' within modules",
     long_description=long_description,
